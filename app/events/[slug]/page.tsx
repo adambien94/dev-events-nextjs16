@@ -1,0 +1,23 @@
+import React from "react";
+import { notFound } from "next/navigation";
+
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+const EventDetailsPage = async ({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const { slug } = await params;
+
+  const response = await fetch(`${BASE_URL}/api/events/${slug}`);
+  const { event } = await response.json();
+
+  console.log(event);
+
+  if (!event) return notFound();
+
+  return <h1>{slug}</h1>;
+};
+
+export default EventDetailsPage;
