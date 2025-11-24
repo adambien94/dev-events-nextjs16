@@ -4,6 +4,7 @@ import Image from "next/image";
 import BookEvent from "@/components/BookEvent";
 import { getSimilarEventsBySlug } from "@/lib/actions/event.actions";
 import { IEvent } from "@/database/event.model";
+import EventCard from "@/components/EventCard";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
@@ -135,7 +136,15 @@ const EventDetailsPage = async ({
         </aside>
       </div>
 
-      <div className="flex w-full flex-col gap-4 pt-20"></div>
+      <div className="flex w-full flex-col gap-4 pt-20">
+        <h2>Similar Events</h2>
+        <div className="events">
+          {similarEvents.length > 0 &&
+            similarEvents.map((event) => (
+              <EventCard key={event.id} {...event} />
+            ))}
+        </div>
+      </div>
     </section>
   );
 };
