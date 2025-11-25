@@ -215,7 +215,7 @@
 
           ul {
             li {
-              @apply text-light-100 text-lg max-sm:text-sm;
+              @apply text-light-200 text-lg max-sm:text-sm;
             }
           }
         }
@@ -235,7 +235,7 @@
     }
 
     p {
-      @apply text-light-100 text-lg max-sm:text-sm;
+      @apply text-light-200 text-lg max-sm:text-sm;
     }
 
     .flex-col-gap-2 {
@@ -252,7 +252,7 @@
   }
 
   #book-event {
-    @apply flex flex-col gap-6;
+    @apply flex flex-col gap-6 text-light-200;
 
     form {
       @apply flex flex-col gap-6;
